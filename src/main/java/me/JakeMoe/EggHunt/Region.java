@@ -1,4 +1,4 @@
-package me.JakeMoe.BlockHunt;
+package me.JakeMoe.EggHunt;
 
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import org.bukkit.Location;

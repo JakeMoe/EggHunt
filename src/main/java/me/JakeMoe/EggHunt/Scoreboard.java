@@ -1,5 +1,6 @@
-package me.JakeMoe.BlockHunt;
+package me.JakeMoe.EggHunt;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
@@ -44,7 +45,7 @@ class Scoreboard {
 
     for (int i = 0; i < total; i++) {
       Map.Entry entry = (Map.Entry) iterator.next();
-      Score score = objective.getScore(Util.getNameByUUID((UUID) entry.getKey(), plugin.getPluginConfig().isNickyEnabled()));
+      Score score = objective.getScore(Bukkit.getOfflinePlayer(UUID.fromString(entry.getKey().toString())).getName());
       score.setScore((int) entry.getValue());
     }
 

@@ -1,8 +1,7 @@
-package me.JakeMoe.BlockHunt;
+package me.JakeMoe.EggHunt;
 
 import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 
-import io.loyloy.nicky.Nicky;
 import org.bukkit.Location;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
@@ -16,7 +15,7 @@ import java.util.logging.Level;
 
 public class Main extends JavaPlugin {
 
-  private static final String version = "1.3";
+  private static final String version = "0.1";
   private static final String author = "Jake Moe";
 
   private GameManager gameManager;
@@ -27,7 +26,6 @@ public class Main extends JavaPlugin {
   private BukkitTask gameTimer;
   private BukkitTask lobbyTimer;
   private Config pluginConfig;
-  private Nicky nickyPlugin;
   private HashMap<UUID, Double> originalHealth;
   private HashMap<UUID, Location> originalLocations;
   private HashMap<UUID, ItemStack[]> originalArmor;
@@ -43,16 +41,10 @@ public class Main extends JavaPlugin {
   @Override
   public void onEnable() {
     if (getWorldGuardPlugin() == null) {
-      getServer().getLogger().log(Level.INFO, "[BlockHunt] WorldGuard plugin not found");
+      getServer().getLogger().log(Level.INFO, "[EggHunt] WorldGuard plugin not found");
       return;
     } else {
-      getServer().getLogger().log(Level.INFO, "[BlockHunt] WorldGuard plugin found");
-    }
-
-    if (getNickyPlugin() == null) {
-      getServer().getLogger().log(Level.INFO, "[BlockHunt] Nicky plugin not found");
-    } else {
-      getServer().getLogger().log(Level.INFO, "[BlockHunt] Nicky plugin found");
+      getServer().getLogger().log(Level.INFO, "[EggHunt] WorldGuard plugin found");
     }
 
     pluginConfig = new Config(this);
@@ -80,7 +72,7 @@ public class Main extends JavaPlugin {
 
   @Override
   public void onLoad() {
-    getServer().getLogger().log(Level.INFO, "[BlockHunt] Loading version " + version);
+    getServer().getLogger().log(Level.INFO, "[EggHunt] Loading version " + version);
   }
 
   GameManager getGameManager() {
@@ -113,18 +105,6 @@ public class Main extends JavaPlugin {
 
   Scoreboard getScoreboard() {
     return scoreboard;
-  }
-
-  Nicky getNickyPlugin() {
-    if (nickyPlugin == null) {
-      Plugin plugin = getServer().getPluginManager().getPlugin("Nicky");
-      if ((plugin == null) || (!(plugin instanceof Nicky))) {
-        nickyPlugin = null;
-      } else {
-        nickyPlugin = (Nicky) plugin;
-      }
-    }
-    return nickyPlugin;
   }
 
   HashMap<UUID, Double> getOriginalHealth() {

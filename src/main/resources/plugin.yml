@@ -1,25 +1,24 @@
-name: BlockHunt
-version: 1.3
+name: EggHunt
+version: 0.1
 author: Jake (John) Moe (JakesAddress@gmail.com)
-main: me.JakeMoe.BlockHunt.Main
-website: https://github.com/JakeMoe/BlockHunt
+main: me.JakeMoe.EggHunt.Main
+website: https://github.com/JakeMoe/EggHunt
 database: false
 depend: [WorldGuard]
-softdepend: [Nicky]
 
 commands:
-  bh:
-    description: BlockHunt base command
-    permission: BlockHunt.bh
+  eh:
+    description: EggHunt base command
+    permission: EggHunt.bh
     permission-message: You do not have access to this command.
-    usage: /bh
+    usage: /eh
 
 permissions:
-  BlockHunt.*:
-    description: Gives access to all BlockHunt commands
+  EggHunt.*:
+    description: Gives access to all EggHunt commands
     default: true
     children:
-      BlockHunt.bh: true
-  BlockHunt.bh:
-    description: BlockHunt base command
+      EggHunt.eh: true
+  EggHunt.eh:
+    description: EggHunt base command
     default: true

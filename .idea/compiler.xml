@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="BlockHunt" />
+        <module name="EggHunt" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="BlockHunt" target="1.8" />
+      <module name="EggHunt" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

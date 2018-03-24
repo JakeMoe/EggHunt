@@ -1,4 +1,4 @@
-package me.JakeMoe.BlockHunt;
+package me.JakeMoe.EggHunt;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BlockHunt.iml" filepath="$PROJECT_DIR$/BlockHunt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EggHunt.iml" filepath="$PROJECT_DIR$/EggHunt.iml" />
     </modules>
   </component>
 </project>
