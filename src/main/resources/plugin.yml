@@ -1,0 +1,25 @@
+name: BlockHunt
+version: 1.3
+author: Jake (John) Moe (JakesAddress@gmail.com)
+main: me.JakeMoe.BlockHunt.Main
+website: https://github.com/JakeMoe/BlockHunt
+database: false
+depend: [WorldGuard]
+softdepend: [Nicky]
+
+commands:
+  bh:
+    description: BlockHunt base command
+    permission: BlockHunt.bh
+    permission-message: You do not have access to this command.
+    usage: /bh
+
+permissions:
+  BlockHunt.*:
+    description: Gives access to all BlockHunt commands
+    default: true
+    children:
+      BlockHunt.bh: true
+  BlockHunt.bh:
+    description: BlockHunt base command
+    default: true
