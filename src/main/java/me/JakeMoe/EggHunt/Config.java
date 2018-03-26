@@ -2,6 +2,7 @@ package me.JakeMoe.EggHunt;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.configuration.file.FileConfiguration;
 
 class Config {
@@ -46,6 +47,11 @@ class Config {
 
     if (!fileConfig.contains("EggHunt.settings.game.potionAddRandSeconds")) {
       fileConfig.set("EggHunt.settings.game.potionAddRandSeconds", 10);
+      booChanged = true;
+    }
+
+    if (!fileConfig.contains("EggHunt.settings.game.potionParticle")) {
+      fileConfig.set("EggHunt.settings.game.potionParticle", "FIREWORKS_SPARK");
       booChanged = true;
     }
 
@@ -284,6 +290,15 @@ class Config {
 
   void setPotionAddRandSeconds(int seconds) {
     fileConfig.set("EggHunt.settings.game.potionAddRandSeconds", seconds);
+    plugin.saveConfig();
+  }
+
+  Particle getPotionParticleEffect() {
+    return Particle.valueOf(fileConfig.getString("EggHunt.settings.game.potionParticleEffect"));
+  }
+
+  void setPotionParticleEffect(String particle) {
+    fileConfig.set("EggHunt.settings.game.potionParticleEffect", particle);
     plugin.saveConfig();
   }
 

@@ -2,6 +2,7 @@ package me.JakeMoe.EggHunt;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -57,48 +58,6 @@ public class Command implements CommandExecutor {
         // eh game help
         if ((args.length == 1) || (args[1].equals("help"))) {
           showSyntax(sender, args[0]);
-        // eh game blockAddBase
-        } else if (args[1].equals("blockAddBase")) {
-          if (args.length == 2) {
-            sender.sendMessage("Base seconds is currently " + plugin.getPluginConfig().getBlockAddBaseSeconds());
-          // eh game blockAddBase help
-          } else if (args[2].equals("help")) {
-            showSyntax(sender, args[0] + args[1]);
-          // eh game blockAddBase <seconds>
-          } else if (args.length == 3) {
-            plugin.getPluginConfig().setBlockAddBaseSeconds(Integer.parseInt(args[2]));
-            sender.sendMessage("Base seconds is now " + plugin.getPluginConfig().getBlockAddBaseSeconds());
-          } else {
-            showSyntax(sender, args[0] + args[1]);
-          }
-        // eh game blockAddRand
-        } else if (args[1].equals("blockAddRand")) {
-          if (args.length == 2) {
-            sender.sendMessage("Random seconds is currently " + plugin.getPluginConfig().getBlockAddRandSeconds());
-          // eh game blockAddRand help
-          } else if (args[2].equals("help")) {
-            showSyntax(sender, args[0] + args[1]);
-          // eh game blockAddRand <seconds>
-          } else if (args.length == 3) {
-            plugin.getPluginConfig().setBlockAddRandSeconds(Integer.parseInt(args[2]));
-            sender.sendMessage("Random seconds is now " + plugin.getPluginConfig().getBlockAddRandSeconds());
-          } else {
-            showSyntax(sender, args[0] + args[1]);
-          }
-        // eh game blocks
-        } else if (args[1].equals("blocks")) {
-          if (args.length == 2) {
-            sender.sendMessage("Number of blocks is currently " + plugin.getPluginConfig().getGameNumBlocks());
-            // eh game blocks help
-          } else if (args[2].equals("help")) {
-            showSyntax(sender, args[0] + args[1]);
-            // eh game blocks <number>
-          } else if (args.length == 3) {
-            plugin.getPluginConfig().setGameNumBlocks(Integer.parseInt(args[2]));
-            sender.sendMessage("Number of blocks is now " + plugin.getPluginConfig().getGameNumBlocks());
-          } else {
-            showSyntax(sender, args[0] + args[1]);
-          }
         // eh game duration
         } else if (args[1].equals("duration")) {
           if (args.length == 2) {
@@ -131,13 +90,32 @@ public class Command implements CommandExecutor {
         } else if (args[1].equals("potionAddRand")) {
           if (args.length == 2) {
             sender.sendMessage("Random seconds is currently " + plugin.getPluginConfig().getPotionAddRandSeconds());
-          // eh game potionAddRand help
+            // eh game potionAddRand help
           } else if (args[2].equals("help")) {
             showSyntax(sender, args[0] + args[1]);
-          // eh game potionAddRand <seconds>
+            // eh game potionAddRand <seconds>
           } else if (args.length == 3) {
             plugin.getPluginConfig().setPotionAddRandSeconds(Integer.parseInt(args[2]));
             sender.sendMessage("Random seconds is now " + plugin.getPluginConfig().getPotionAddRandSeconds());
+          } else {
+            showSyntax(sender, args[0] + args[1]);
+          }
+        // eh game potionParticleEffect
+        } else if (args[1].equals("potionParticleEffect")) {
+          if (args.length == 2) {
+            sender.sendMessage("Potion particle effect is currently " + plugin.getPluginConfig().getPotionParticleEffect());
+          // eh game potionParticleEffect help
+          } else if (args[2].equals("help")) {
+            showSyntax(sender, args[0] + args[1]);
+          } else if (args.length == 3) {
+            for (Particle p : Particle.values()) {
+              if (p.name().equals(args[2])) {
+                plugin.getPluginConfig().setPotionParticleEffect(args[2]);
+                sender.sendMessage("Potion particle effect is now " + plugin.getPluginConfig().getPotionParticleEffect());
+                break;
+              }
+            }
+            sender.sendMessage(ChatColor.RED + args[2] + " is not a valid Bukkit PARTICLE. See the Bukkit API reference for a list of particles");
           } else {
             showSyntax(sender, args[0] + args[1]);
           }

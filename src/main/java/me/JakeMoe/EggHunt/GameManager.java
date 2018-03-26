@@ -3,6 +3,7 @@ package me.JakeMoe.EggHunt;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
@@ -95,8 +96,10 @@ class GameManager {
     itemStack.setItemMeta(potionMeta);
 
     Location randomLocation = plugin.getGameRegion().getRandomLocation();
-    plugin.getGameRegion().getWorld().strikeLightningEffect(randomLocation);
     potionsDropped.add(plugin.getGameRegion().getWorld().dropItem(randomLocation, itemStack));
+
+    Particle particle = plugin.getPluginConfig().getPotionParticleEffect();
+    plugin.getGameRegion().getWorld().spawnParticle(particle, randomLocation, 5);
 
   }
 

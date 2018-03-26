@@ -16,3 +16,6 @@ To configure, you can edit the config.yml file by hand, or use in game commands.
 
 * 0.1 - Jake Moe - 24 March 2018
   * Initial Commit
+* 0.2 - Jake Moe - 26 March 2018
+  * Removed lightning effect from dropped potions
+  * Added configurable particle effect to dropped potions
