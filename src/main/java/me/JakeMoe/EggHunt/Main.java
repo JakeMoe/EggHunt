@@ -15,7 +15,7 @@ import java.util.logging.Level;
 
 public class Main extends JavaPlugin {
 
-  private static final String version = "0.2";
+  private static final String version = "0.3";
   private static final String author = "Jake Moe";
 
   private GameManager gameManager;
@@ -62,7 +62,7 @@ public class Main extends JavaPlugin {
 
     allScores = new HashMap<>();
 
-    getCommand("bh").setExecutor(new Command(this));
+    getCommand("eh").setExecutor(new Command(this));
     getServer().getPluginManager().registerEvents(new BlockBreakListener(this), this);
     getServer().getPluginManager().registerEvents(new DamageListener(this), this);
     getServer().getPluginManager().registerEvents(new DisconnectListener(this), this);

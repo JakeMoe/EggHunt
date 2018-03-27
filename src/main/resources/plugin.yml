@@ -1,5 +1,5 @@
 name: EggHunt
-version: 0.1
+version: 0.3
 author: Jake (John) Moe (JakesAddress@gmail.com)
 main: me.JakeMoe.EggHunt.Main
 website: https://github.com/JakeMoe/EggHunt
@@ -9,7 +9,7 @@ depend: [WorldGuard]
 commands:
   eh:
     description: EggHunt base command
-    permission: EggHunt.bh
+    permission: EggHunt.eh
     permission-message: You do not have access to this command.
     usage: /eh
 

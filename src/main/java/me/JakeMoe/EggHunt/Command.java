@@ -101,7 +101,7 @@ public class Command implements CommandExecutor {
             showSyntax(sender, args[0] + args[1]);
           }
         // eh game potionParticleEffect
-        } else if (args[1].equals("potionParticleEffect")) {
+        } else if (args[1].equals("potionParticle")) {
           if (args.length == 2) {
             sender.sendMessage("Potion particle effect is currently " + plugin.getPluginConfig().getPotionParticleEffect());
           // eh game potionParticleEffect help

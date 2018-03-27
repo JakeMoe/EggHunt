@@ -51,12 +51,12 @@ class Config {
     }
 
     if (!fileConfig.contains("EggHunt.settings.game.potionParticle")) {
-      fileConfig.set("EggHunt.settings.game.potionParticle", "FIREWORKS_SPARK");
+      fileConfig.set("EggHunt.settings.game.potionParticle", "SPELL_INSTANT");
       booChanged = true;
     }
 
     if (!fileConfig.contains("EggHunt.areas.game.Region")) {
-      fileConfig.set("EggHunt.areas.game.Region", "EggHuntGame");
+      fileConfig.set("EggHunt.areas.game.Region", "game");
       booChanged = true;
     }
 
@@ -91,7 +91,7 @@ class Config {
     }
 
     if (!fileConfig.contains("EggHunt.areas.lobby.Region")) {
-      fileConfig.set("EggHunt.areas.lobby.Region", "EggHuntLobby");
+      fileConfig.set("EggHunt.areas.lobby.Region", "lobby");
       booChanged = true;
     }
 
@@ -126,7 +126,7 @@ class Config {
     }
 
     if (!fileConfig.contains("EggHunt.settings.materialToFind")) {
-      fileConfig.set("EggHunt.settings.materialToFind", "SKULL_ITEM");
+      fileConfig.set("EggHunt.settings.materialToFind", "SKULL");
       booChanged = true;
     }
 
@@ -294,11 +294,11 @@ class Config {
   }
 
   Particle getPotionParticleEffect() {
-    return Particle.valueOf(fileConfig.getString("EggHunt.settings.game.potionParticleEffect"));
+    return Particle.valueOf(fileConfig.getString("EggHunt.settings.game.potionParticle"));
   }
 
   void setPotionParticleEffect(String particle) {
-    fileConfig.set("EggHunt.settings.game.potionParticleEffect", particle);
+    fileConfig.set("EggHunt.settings.game.potionParticle", particle);
     plugin.saveConfig();
   }
 

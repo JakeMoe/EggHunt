@@ -99,7 +99,7 @@ class GameManager {
     potionsDropped.add(plugin.getGameRegion().getWorld().dropItem(randomLocation, itemStack));
 
     Particle particle = plugin.getPluginConfig().getPotionParticleEffect();
-    plugin.getGameRegion().getWorld().spawnParticle(particle, randomLocation, 5);
+    plugin.getGameRegion().getWorld().spawnParticle(particle, randomLocation, 10, 0.0D, 0.0D, 0.0D, 0.0D);
 
   }
 
