@@ -57,7 +57,7 @@ abstract class Region {
     Material materialUnder;
 
 
-    // Needs error handling for if it can't find an available space
+    // TODO: Needs error handling for if it can't find an available space
     do {
       rndX = random.nextInt(maxX - minX + 1) + minX;
       rndZ = random.nextInt(maxZ - minZ + 1) + minZ;

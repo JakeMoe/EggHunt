@@ -237,6 +237,40 @@ public class Command implements CommandExecutor {
         }
       } else {
         switch (args[0]) {
+          case "countdownMessage":
+            // eh countdownMessage
+            if (args.length == 1) {
+              sender.sendMessage("Lobby countdown message is currently: " + plugin.getPluginConfig().getCountdownMessage());
+              // eh countdownMessage help
+            } else if (args[1].equals("help")) {
+              showSyntax(sender, args[0]);
+              // eh countdownMessage <message with spaces>
+            } else {
+              StringBuilder countdownMessage = new StringBuilder();
+              for (int i = 1; i < args.length; i++) {
+                countdownMessage.append((i == args.length - 1) ? args[i] : args[i] + " ");
+              }
+              plugin.getPluginConfig().setCountdownMessage(countdownMessage.toString());
+              sender.sendMessage("Hunt countdown message is now: " + plugin.getPluginConfig().getCountdownMessage());
+
+            }
+          case "countdownLowMessage":
+            // eh countdownLowMessage
+            if (args.length == 1) {
+              sender.sendMessage("Lobby countdown low message is currently: " + plugin.getPluginConfig().getCountdownLowMessage());
+              // eh countdownLowMessage help
+            } else if (args[1].equals("help")) {
+              showSyntax(sender, args[0]);
+              // eh countdownLowMessage <message with spaces>
+            } else {
+              StringBuilder countdownLowMessage = new StringBuilder();
+              for (int i = 1; i < args.length; i++) {
+                countdownLowMessage.append((i == args.length - 1) ? args[i] : args[i] + " ");
+              }
+              plugin.getPluginConfig().setCountdownLowMessage(countdownLowMessage.toString());
+              sender.sendMessage("Hunt countdown message is now: " + plugin.getPluginConfig().getCountdownLowMessage());
+
+            }
           case "endMessage":
             // eh endMessage
             if (args.length == 1) {
@@ -292,6 +326,22 @@ public class Command implements CommandExecutor {
               sender.sendMessage("Hunt scoreboard title is now: " + plugin.getPluginConfig().getScoreboardTitle());
             }
             break;
+          case "potionMessage":
+            // eh potionMessage
+            if (args.length == 1) {
+              sender.sendMessage("Message for potion pickup is currently: " + plugin.getPluginConfig().getPotionMessage());
+            // eh potionMessage help
+            } else if (args[1].equals("help")) {
+              showSyntax(sender, args[0]);
+            // eh potionMessage <message with spaces>
+            } else {
+              StringBuilder potionMessage = new StringBuilder();
+              for (int i = 1; i < args.length; i++) {
+                potionMessage.append((i == args.length - 1) ? args[i] : args[i] + " ");
+              }
+              plugin.getPluginConfig().setPotionMessage(potionMessage.toString());
+              sender.sendMessage("Message for potion pickup is now: " + plugin.getPluginConfig().getPotionMessage());
+            }
           case "startMessage":
             // eh startMessage
             if (args.length == 1) {
@@ -340,6 +390,14 @@ public class Command implements CommandExecutor {
 
   private void showSyntax(CommandSender sender, String command) {
     switch (command) {
+      case "countdownMessage":
+        sender.sendMessage(ChatColor.LIGHT_PURPLE + "/eh countdownMessage" + ChatColor.YELLOW + " [message]" + ChatColor.WHITE + " - gets or" + ChatColor.YELLOW + " sets" + ChatColor.WHITE + " the message at");
+        sender.sendMessage("    the lobby countdown");
+        break;
+      case "countdownLowMessage":
+        sender.sendMessage(ChatColor.LIGHT_PURPLE + "/eh countdownMessage" + ChatColor.YELLOW + " [message]" + ChatColor.WHITE + " - gets or" + ChatColor.YELLOW + " sets" + ChatColor.WHITE + " the message at");
+        sender.sendMessage("    the lobby countdown when time is low (seconds < 5)");
+        break;
       case "duration":
         sender.sendMessage(ChatColor.LIGHT_PURPLE + "/eh duration" + ChatColor.YELLOW + " [seconds]" + ChatColor.WHITE + " - gets or" + ChatColor.YELLOW + " sets" + ChatColor.WHITE + " the length of the");
         sender.sendMessage("    Hunt in seconds");

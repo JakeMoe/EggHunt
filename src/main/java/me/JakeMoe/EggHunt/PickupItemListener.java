@@ -29,7 +29,8 @@ class PickupItemListener implements Listener {
       for (PotionEffect effect : meta.getCustomEffects()) {
         event.getEntity().addPotionEffect(effect);
       }
-      event.getEntity().sendMessage("You got " + meta.getDisplayName());
+//      event.getEntity().sendMessage("You got " + meta.getDisplayName());
+      event.getEntity().sendMessage(plugin.getPluginConfig().getPotionMessage().replace("%effect", meta.getDisplayName()));
       plugin.getGameManager().getPotionsDropped().remove(event.getItem());
       event.getItem().remove();
       event.setCancelled(true);

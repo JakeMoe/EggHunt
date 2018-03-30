@@ -48,14 +48,18 @@ class LobbyRegion extends Region {
               plugin.getGameManager().start();
             } else if (count <= 5) {
               for (Player player : players) {
-                player.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "» " + ChatColor.RESET + ChatColor.YELLOW + "The hunt starts in " + ChatColor.RED + count + " seconds!");
-                player.sendTitle("" + ChatColor.YELLOW + "The hunt starts in " + ChatColor.RED + count + " seconds!", "", 2, 16, 2);
+//                player.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "» " + ChatColor.RESET + ChatColor.YELLOW + "The hunt starts in " + ChatColor.RED + count + " seconds!");
+//                player.sendTitle("" + ChatColor.YELLOW + "The hunt starts in " + ChatColor.RED + count + " seconds!", "", 2, 16, 2);
+                player.sendMessage(plugin.getPluginConfig().getCountdownMessage().replace("%seconds", Integer.toString(count)));
+                player.sendTitle(plugin.getPluginConfig().getCountdownMessage().replace("%seconds", Integer.toString(count)), "", 2, 16, 2);
               }
               count--;
             } else if (count % 5 == 0) {
               for (Player player : players) {
-                player.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "» " + ChatColor.RESET + ChatColor.YELLOW + "The hunt starts in " + ChatColor.GOLD + count + " seconds!");
-                player.sendTitle("" + ChatColor.YELLOW + "The hunt starts in " + ChatColor.GOLD + count + " seconds!", "", 5, 20, 5);
+//                player.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "» " + ChatColor.RESET + ChatColor.YELLOW + "The hunt starts in " + ChatColor.GOLD + count + " seconds!");
+//                player.sendTitle("" + ChatColor.YELLOW + "The hunt starts in " + ChatColor.GOLD + count + " seconds!", "", 5, 20, 5);
+                player.sendMessage(plugin.getPluginConfig().getCountdownLowMessage().replace("%seconds", Integer.toString(count)));
+                player.sendTitle(plugin.getPluginConfig().getCountdownLowMessage().replace("%seconds", Integer.toString(count)), "", 2, 16, 2);
               }
               count--;
             } else {
@@ -71,6 +75,7 @@ class LobbyRegion extends Region {
   }
 
   void updateRegion() {
+    // TODO: Need error handling in case the region doesn't exist
     world = plugin.getServer().getWorld(plugin.getPluginConfig().getLobbyWorld());
     region = plugin.getWorldGuardPlugin().getRegionManager(world).getRegion(plugin.getPluginConfig().getLobbyRegion());
   }

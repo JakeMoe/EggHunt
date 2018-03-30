@@ -60,28 +60,16 @@ class GameManager {
 
     int duration = 10;
 
-    switch ((new Random()).nextInt(6)) {
+    switch ((new Random()).nextInt(3)) {
       case 0:
-        potionEffect = new PotionEffect(PotionEffectType.ABSORPTION, duration * 20, 0, true, true);
-        potionName = "Absorption";
-        break;
-      case 1:
-        potionEffect = new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, duration * 20, 1, true, true);
-        potionName = "Resistance II";
-        break;
-      case 2:
         potionEffect = new PotionEffect(PotionEffectType.FAST_DIGGING, duration * 20, 1, true, true);
         potionName = "Haste II";
         break;
-      case 3:
-        potionEffect = new PotionEffect(PotionEffectType.HEAL, 1, 1, true, true);
-        potionName = "Healing II";
-        break;
-      case 4:
+      case 1:
         potionEffect = new PotionEffect(PotionEffectType.JUMP, duration * 20, 2, true, true);
         potionName = "Jump Boost II";
         break;
-      case 5:
+      case 2:
         potionEffect = new PotionEffect(PotionEffectType.SPEED, duration * 20, 1, true, true);
         potionName = "Speed II";
         break;

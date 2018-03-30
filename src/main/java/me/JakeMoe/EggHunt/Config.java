@@ -20,23 +20,8 @@ class Config {
 
     fileConfig = plugin.getConfig();
 
-    if (!fileConfig.contains("EggHunt.settings.game.blockAddBaseSeconds")) {
-      fileConfig.set("EggHunt.settings.game.blockAddBaseSeconds", 10);
-      booChanged = true;
-    }
-
-    if (!fileConfig.contains("EggHunt.settings.game.blockAddRandSeconds")) {
-      fileConfig.set("EggHunt.settings.game.blockAddRandSeconds", 10);
-      booChanged = true;
-    }
-
     if (!fileConfig.contains("EggHunt.settings.game.duration")) {
       fileConfig.set("EggHunt.settings.game.duration", "30");
-      booChanged = true;
-    }
-
-    if (!fileConfig.contains("EggHunt.settings.game.numBlocks")) {
-      fileConfig.set("EggHunt.settings.game.numBlocks", "10");
       booChanged = true;
     }
 
@@ -105,8 +90,23 @@ class Config {
       booChanged = true;
     }
 
+    if (!fileConfig.contains("EggHunt.messages.Countdown")) {
+      fileConfig.set("EggHunt.messages.Countdown", "The Hunt starts in %t seconds!");
+      booChanged = true;
+    }
+
+    if (!fileConfig.contains("EggHunt.messages.Countdown.Low")) {
+      fileConfig.set("EggHunt.messages.Countdown.Low", "The Hunt starts in %t seconds!");
+      booChanged = true;
+    }
+
     if (!fileConfig.contains("EggHunt.messages.End")) {
       fileConfig.set("EggHunt.messages.End", "The Hunt has ended!");
+      booChanged = true;
+    }
+
+    if (!fileConfig.contains("EggHunt.messages.Potion")) {
+      fileConfig.set("EggHunt.messages.Potion", "You got %effect!");
       booChanged = true;
     }
 
@@ -140,21 +140,20 @@ class Config {
     plugin.saveConfig();
   }
 
-  int getBlockAddBaseSeconds() {
-    return fileConfig.getInt("EggHunt.settings.game.blockAddBaseSeconds");
+  String getCountdownMessage() {
+    return fileConfig.getString("EggHunt.messages.Countdown");
   }
 
-  void setBlockAddBaseSeconds(int seconds) {
-    fileConfig.set("EggHunt.settings.game.blockAddBaseSeconds", seconds);
+  void setCountdownMessage(String message) {
+    fileConfig.set("EggHunt.messages.Countdown", message);
     plugin.saveConfig();
   }
 
-  int getBlockAddRandSeconds() {
-    return fileConfig.getInt("EggHunt.settings.game.blockAddRandSeconds");
+  String getCountdownLowMessage() {
+    return fileConfig.getString("EggHunt.messages.CountdownLow");
   }
-
-  void setBlockAddRandSeconds(int seconds) {
-    fileConfig.set("EggHunt.settings.game.blockAddRandSeconds", seconds);
+  void setCountdownLowMessage(String message) {
+    fileConfig.set("EggHunt.messages.Countdown.Low", message);
     plugin.saveConfig();
   }
 
@@ -173,15 +172,6 @@ class Config {
 
   void setGameDuration(int seconds) {
     fileConfig.set("EggHunt.settings.game.duration", seconds);
-    plugin.saveConfig();
-  }
-
-  int getGameNumBlocks() {
-    return Integer.valueOf(fileConfig.getString("EggHunt.settings.game.numBlocks"));
-  }
-
-  void setGameNumBlocks(int numBlocks) {
-    fileConfig.set("EggHunt.settings.game.numBlocks", numBlocks);
     plugin.saveConfig();
   }
 
@@ -299,6 +289,15 @@ class Config {
 
   void setPotionParticleEffect(String particle) {
     fileConfig.set("EggHunt.settings.game.potionParticle", particle);
+    plugin.saveConfig();
+  }
+
+  String getPotionMessage() {
+    return fileConfig.getString("EggHunt.messages.Potion");
+  }
+
+  void setPotionMessage(String message) {
+    fileConfig.set("EggHunt.messages.Potion", message);
     plugin.saveConfig();
   }
 

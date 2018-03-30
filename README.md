@@ -22,3 +22,7 @@ To configure, you can edit the config.yml file by hand, or use in game commands.
 * 0.3 - Jake Moe - 27 March 2018
   * Fixed particle effects
   * Fixed config node name mismatches
+* 0.4 - Jake Moe - 30 March 2018
+  * Added config for countdown timer
+  * Added config for potion pickup message
+  * Removed more potions, as they aren't relavent to this game
